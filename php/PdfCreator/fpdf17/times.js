@@ -1,0 +1,182 @@
+window['times.php'] = {
+	type : 'Core',
+	name : 'Times-Roman',
+	up : -100,
+	ut : 50,
+
+	cw : {' ':250,'!':333,'"':408,'#':500,'$':500,'%':833,'&':778,'\'':180,'(':333,')':333,'*':500,'+':564,
+	',':250,'-':333,'.':250,'/':278,'0':500,'1':500,'2':500,'3':500,'4':500,'5':500,'6':500,'7':500,'8':500,'9':500,':':278,';':278,'<':564,'=':564,'>':564,'?':444,'@':921,'A':722,
+	'B':667,'C':667,'D':722,'E':611,'F':556,'G':722,'H':722,'I':333,'J':389,'K':722,'L':611,'M':889,'N':722,'O':722,'P':556,'Q':722,'R':667,'S':556,'T':611,'U':722,'V':722,'W':944,
+	'X':722,'Y':722,'Z':611,'[':333,'\\':278,']':333,'^':469,'_':500,'`':333,'a':444,'b':500,'c':444,'d':500,'e':444,'f':333,'g':500,'h':500,'i':278,'j':278,'k':500,'l':278,'m':778,
+	'n':500,'o':500,'p':500,'q':500,'r':333,'s':389,'t':278,'u':500,'v':500,'w':722,'x':500,'y':500,'z':444,'{':480,'|':200,'}':480,'~':541},
+	
+}
+
+window['times.php'].cw[chr(0)] = 250;
+window['times.php'].cw[chr(1)] = 250;
+window['times.php'].cw[chr(2)] = 250;
+window['times.php'].cw[chr(3)] = 250;
+window['times.php'].cw[chr(4)] = 250;
+window['times.php'].cw[chr(5)] = 250;
+window['times.php'].cw[chr(6)] = 250;
+window['times.php'].cw[chr(7)] = 250;
+window['times.php'].cw[chr(8)] = 250;
+window['times.php'].cw[chr(9)] = 250;
+window['times.php'].cw[chr(10)] = 250;
+window['times.php'].cw[chr(11)] = 250;
+window['times.php'].cw[chr(12)] = 250;
+window['times.php'].cw[chr(13)] = 250;
+window['times.php'].cw[chr(14)] = 250;
+window['times.php'].cw[chr(15)] = 250;
+window['times.php'].cw[chr(16)] = 250;
+window['times.php'].cw[chr(17)] = 250;
+window['times.php'].cw[chr(18)] = 250;
+window['times.php'].cw[chr(19)] = 250;
+window['times.php'].cw[chr(20)] = 250;
+window['times.php'].cw[chr(21)] = 250;
+
+	window['times.php'].cw[chr(22)] = 250;
+window['times.php'].cw[chr(23)] = 250;
+window['times.php'].cw[chr(24)] = 250;
+window['times.php'].cw[chr(25)] = 250;
+window['times.php'].cw[chr(26)] = 250;
+window['times.php'].cw[chr(27)] = 250;
+window['times.php'].cw[chr(28)] = 250;
+window['times.php'].cw[chr(29)] = 250;
+window['times.php'].cw[chr(30)] = 250;
+window['times.php'].cw[chr(31)] = 250;
+window['times.php'].cw[chr(127)] = 350;
+window['times.php'].cw[chr(128)] = 500;
+window['times.php'].cw[chr(129)] = 350;
+window['times.php'].cw[chr(130)] = 333;
+window['times.php'].cw[chr(131)] = 500;
+
+	window['times.php'].cw[chr(132)] = 444;
+window['times.php'].cw[chr(133)] = 1000;
+window['times.php'].cw[chr(134)] = 500;
+window['times.php'].cw[chr(135)] = 500;
+window['times.php'].cw[chr(136)] = 333;
+window['times.php'].cw[chr(137)] = 1000;
+window['times.php'].cw[chr(138)] = 556;
+window['times.php'].cw[chr(139)] = 333;
+window['times.php'].cw[chr(140)] = 889;
+window['times.php'].cw[chr(141)] = 350;
+window['times.php'].cw[chr(142)] = 611;
+window['times.php'].cw[chr(143)] = 350;
+window['times.php'].cw[chr(144)] = 350;
+window['times.php'].cw[chr(145)] = 333;
+window['times.php'].cw[chr(146)] = 333;
+window['times.php'].cw[chr(147)] = 444;
+window['times.php'].cw[chr(148)] = 444;
+window['times.php'].cw[chr(149)] = 350;
+window['times.php'].cw[chr(150)] = 500;
+window['times.php'].cw[chr(151)] = 1000;
+window['times.php'].cw[chr(152)] = 333;
+window['times.php'].cw[chr(153)] = 980;
+
+	window['times.php'].cw[chr(154)] = 389;
+window['times.php'].cw[chr(155)] = 333;
+window['times.php'].cw[chr(156)] = 722;
+window['times.php'].cw[chr(157)] = 350;
+window['times.php'].cw[chr(158)] = 444;
+window['times.php'].cw[chr(159)] = 722;
+window['times.php'].cw[chr(160)] = 250;
+window['times.php'].cw[chr(161)] = 333;
+window['times.php'].cw[chr(162)] = 500;
+window['times.php'].cw[chr(163)] = 500;
+window['times.php'].cw[chr(164)] = 500;
+window['times.php'].cw[chr(165)] = 500;
+window['times.php'].cw[chr(166)] = 200;
+window['times.php'].cw[chr(167)] = 500;
+window['times.php'].cw[chr(168)] = 333;
+window['times.php'].cw[chr(169)] = 760;
+window['times.php'].cw[chr(170)] = 276;
+window['times.php'].cw[chr(171)] = 500;
+window['times.php'].cw[chr(172)] = 564;
+window['times.php'].cw[chr(173)] = 333;
+window['times.php'].cw[chr(174)] = 760;
+window['times.php'].cw[chr(175)] = 333;
+
+	window['times.php'].cw[chr(176)] = 400;
+window['times.php'].cw[chr(177)] = 564;
+window['times.php'].cw[chr(178)] = 300;
+window['times.php'].cw[chr(179)] = 300;
+window['times.php'].cw[chr(180)] = 333;
+window['times.php'].cw[chr(181)] = 500;
+window['times.php'].cw[chr(182)] = 453;
+window['times.php'].cw[chr(183)] = 250;
+window['times.php'].cw[chr(184)] = 333;
+window['times.php'].cw[chr(185)] = 300;
+window['times.php'].cw[chr(186)] = 310;
+window['times.php'].cw[chr(187)] = 500;
+window['times.php'].cw[chr(188)] = 750;
+window['times.php'].cw[chr(189)] = 750;
+window['times.php'].cw[chr(190)] = 750;
+window['times.php'].cw[chr(191)] = 444;
+window['times.php'].cw[chr(192)] = 722;
+window['times.php'].cw[chr(193)] = 722;
+window['times.php'].cw[chr(194)] = 722;
+window['times.php'].cw[chr(195)] = 722;
+window['times.php'].cw[chr(196)] = 722;
+window['times.php'].cw[chr(197)] = 722;
+
+	window['times.php'].cw[chr(198)] = 889;
+window['times.php'].cw[chr(199)] = 667;
+window['times.php'].cw[chr(200)] = 611;
+window['times.php'].cw[chr(201)] = 611;
+window['times.php'].cw[chr(202)] = 611;
+window['times.php'].cw[chr(203)] = 611;
+window['times.php'].cw[chr(204)] = 333;
+window['times.php'].cw[chr(205)] = 333;
+window['times.php'].cw[chr(206)] = 333;
+window['times.php'].cw[chr(207)] = 333;
+window['times.php'].cw[chr(208)] = 722;
+window['times.php'].cw[chr(209)] = 722;
+window['times.php'].cw[chr(210)] = 722;
+window['times.php'].cw[chr(211)] = 722;
+window['times.php'].cw[chr(212)] = 722;
+window['times.php'].cw[chr(213)] = 722;
+window['times.php'].cw[chr(214)] = 722;
+window['times.php'].cw[chr(215)] = 564;
+window['times.php'].cw[chr(216)] = 722;
+window['times.php'].cw[chr(217)] = 722;
+window['times.php'].cw[chr(218)] = 722;
+window['times.php'].cw[chr(219)] = 722;
+
+	window['times.php'].cw[chr(220)] = 722;
+window['times.php'].cw[chr(221)] = 722;
+window['times.php'].cw[chr(222)] = 556;
+window['times.php'].cw[chr(223)] = 500;
+window['times.php'].cw[chr(224)] = 444;
+window['times.php'].cw[chr(225)] = 444;
+window['times.php'].cw[chr(226)] = 444;
+window['times.php'].cw[chr(227)] = 444;
+window['times.php'].cw[chr(228)] = 444;
+window['times.php'].cw[chr(229)] = 444;
+window['times.php'].cw[chr(230)] = 667;
+window['times.php'].cw[chr(231)] = 444;
+window['times.php'].cw[chr(232)] = 444;
+window['times.php'].cw[chr(233)] = 444;
+window['times.php'].cw[chr(234)] = 444;
+window['times.php'].cw[chr(235)] = 444;
+window['times.php'].cw[chr(236)] = 278;
+window['times.php'].cw[chr(237)] = 278;
+window['times.php'].cw[chr(238)] = 278;
+window['times.php'].cw[chr(239)] = 278;
+window['times.php'].cw[chr(240)] = 500;
+window['times.php'].cw[chr(241)] = 500;
+
+window['times.php'].cw[chr(242)] = 500;
+window['times.php'].cw[chr(243)] = 500;
+window['times.php'].cw[chr(244)] = 500;
+window['times.php'].cw[chr(245)] = 500;
+window['times.php'].cw[chr(246)] = 500;
+window['times.php'].cw[chr(247)] = 564;
+window['times.php'].cw[chr(248)] = 500;
+window['times.php'].cw[chr(249)] = 500;
+window['times.php'].cw[chr(250)] = 500;
+window['times.php'].cw[chr(251)] = 500;
+window['times.php'].cw[chr(252)] = 500;
+window['times.php'].cw[chr(253)] = 500;
+window['times.php'].cw[chr(254)] = 500;
+window['times.php'].cw[chr(255)] = 500;

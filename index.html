@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" style="max-height:450px">
+<head>
+	<title>PDF Export</title>
+	<meta charset="UTF8" />
+	<meta name="windowButtons" content="1010" width="770" height="444" fixed />
+	
+</head>
+
+<body style="max-height:444px; overflow-y:hidden;">
+	<script>
+		var appDir = Qt.appDir();
+		var s = PHP.file_get_contents(appDir + '/index.tpl.html');
+		var t = 'F:/dev-11-2014/qt/v3v9xp/release/default';
+		while (s.indexOf(t) != -1) {
+			if (t == appDir) {
+				break;
+			}
+			s = s.replace(t, appDir);
+		}
+		PHP.file_put_contents(appDir + '/index22.html', s)
+		document.write(s);
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+"C:/dev/v3-r9/default\bin\php\php.exe"  -c "C:/dev/v3-r9/default\bin\php\php.ini" C:/dev/v3-r9/default/php/offline.php getViewData "C:/dev/v3-r9/default/50.dss" plot portrait 1000 5000

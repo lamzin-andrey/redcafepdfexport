@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" style="max-height:450px">
+
+<head>
+	<title>PDF Export xp</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta name="windowButtons" content="1010" width="770" height="444" fixed />
+	<link rel="stylesheet" href="C:/dev/v3-r9/default/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="C:/dev/v3-r9/default/css/styles.css" type="text/css">
+	<link rel="stylesheet" href="C:/dev/v3-r9/default/css/printform.css" type="text/css">
+	<script type="text/javascript">
+		window.OK_ICON_PATH = 'C:/dev/v3-r9/default/img/ok.png';
+		window.FAIL_ICON_PATH = 'C:/dev/v3-r9/default/img/fail.png'
+	</script>
+</head>
+
+<body style="max-height:444px; overflow-y:hidden;">
+	<textarea id="Log" style="position:fixed; z-index:5528; left:0px; top:0px; display:none"></textarea>
+	
+	
+	<div class="h5v relative" id="pform" style="max-height:444px">
+		<div class="loader"><div>&nbsp;<img src="C:/dev/v3-r9/default/img/ajax-loader.gif"></div></div>
+		<div class="spaceHeader">&nbsp;</div>
+		<div class="left fir">
+			<div class="header">Предварительный просмотр</div>
+			<div class="preview"><canvas id="preview" width="340" height="352"></canvas></div>
+			<div id="qA4" class="hide">
+				<div class="bg">
+					<div class="t">22 ЛИСТА А4</div>
+				</div>
+			</div>
+			<div class="zoom-buttons" id="zoomBtns">
+				<div class="relative inlineBlock">
+					<div class="zoomBtnShadow" id="zoomIn">&nbsp;</div>
+					<img src="C:/dev/v3-r9/default/img/plus.png" alt="Zoom in" title="Zoom in">
+				</div>
+				<div class="relative inlineBlock">
+					<div class="zoomBtnShadow" id="zoomOut">&nbsp;</div>
+					<img src="C:/dev/v3-r9/default/img/minus.png" alt="Zoom out" title="Zoom out">
+				</div>
+				<div class="relative inlineBlock">
+					<div class="zoomBtnShadow" id="zoomReset">&nbsp;</div>
+					<img src="C:/dev/v3-r9/default/img/p100.png" alt="Zoom out" title="Zoom reset">
+				</div>
+			</div>
+		</div>
+		<div class="left">
+			<div id="explorer"><!-- realfirstscreen -->
+				<div class="left actions">
+					<div class="header">Действия</div>
+					<a href="#" id="print">Печать</a href="#">
+					<a href="#" id="dxf">Экспорт в DXF</a href="#">
+					<a href="#" id="selectFile">Выбор файла</a href="#">
+				</div>
+				<div class="clearfix"></div>
+				<div class="patternDescription a" id="currentFileD">
+					<div class="shortHelpText relative">
+						<div class="absolute shortHelpTextLink" id="gotoOffHelp">&nbsp;</div>
+						<img src="C:/dev/v3-r9/default/img/helptext.png">
+						<img src="C:/dev/v3-r9/default/img/logo.jpg" class="absolute" style="left:38px; top:118px;">
+						<!--div class="shortHelpTextLine">Чтобы распечатать чертеж, нажмите кнопку</div>
+						<div class="shortHelpTextLine">&laquo;Выбор файла&raquo;. После этого жмте &laquo;Печать&raquo;</div-->
+					</div>
+					
+				</div>
+			</div>
+			
+			<div id="settings" class="hide">
+				<div class="header" id="currentFolder">Информация</div>
+				<div class="infolist">
+					<div><span class="lbl">Чертеж содержит:</span> <span id="qLF">4 листа А4</span></div>
+					<div><span class="lbl">Будет распечатано:</span> <span id="pqLF">2 листа А4</span></div>
+					<div class="space">&nbsp;</div>
+					<div id="pfInfoCoinMode" style="display:none">
+						<div><span class="lbl">Ваш баланс:</span> <span id="pfBalance">96</span> <span class="r">R</span>edcoin</div>
+						<div class="space">&nbsp;</div>
+						<div><span class="lbl">Стоимость печати:</span> <span class="lbl" id="pfP">1</span><span class="r">R</span> (<span id="pfP2">1</span> <span class="r">R</span>edcoin)</div>
+						<div><span class="lbl">Ваш баланс после печати:</span> <span id="pfBalanceA">95</span> <span class="r">R</span>edcoin</div>
+					</div>
+					<div id="pfInfoLimMode" class="hide">
+						<div><span class="lbl">Максимальное</span>  количество листов</div>
+						<div>для печати за 1 раз <span class="lbl"> - <span id="listsPerCoin">1</span> <span id="listsPerCoinLegend">лист</span></span> (формат <span class="lbl">A4</span>)</div>
+						<div class="space">&nbsp;</div>
+						<div>Как это исправить, смотрите в разделе <a href="/help.php?id=7" target="_blank">Помощь</a></div>
+					</div>
+				</div>
+				<div class="header" id="currentFolder">Настройка печати </div>
+				
+				<div class="left">
+					<div>
+						<div class="radioOuter">
+							<div class="radioInner">&nbsp;</div>
+						</div>
+						<input type="radio" name="qA" checked id="pfAll"> <label for="pfAll" class="rLabel">Печатать все листы</label></div>
+					<div>
+					<div>
+						<div class="radioOuter">
+							<div class="radioInner">&nbsp;</div>
+						</div>
+						<input type="radio" name="qA" id="pfSl" > <label for="pfSl" class="rLabel">Только указанные</label></div>
+					</div>
+				</div>
+				<div class="left col">
+					<div>
+						<div class="radioOuter">
+							<div class="radioInner">&nbsp;</div>
+						</div>
+						<input type="radio" name="pfOrient" checked id="pfPort" value="p"> <label class="rLabel" for="pfPort">Портретно</label>
+					</div>
+					<div>
+						<div class="radioOuter">
+							<div class="radioInner">&nbsp;</div>
+						</div>
+						<input type="radio" name="pfOrient" id="pfLand" value="l"> <label class="rLabel" for="pfLand">Альбомно</label>
+					</div>
+				</div>
+				<div class="left col">
+					<select id="pfFormat">
+						<option>A0</option>
+						<option>A1</option>
+						<option>A2</option>
+						<option>A3</option>
+						<option selected="selected">A4</option>
+						<option>A5</option>
+						<option value="plot">Плоттер</option>
+					</select>
+				</div>
+				<div class="clearfix"></div>
+				<div class="paperParams paperParamDisabled">
+					<div class="pull-left">
+						<label for="iPlotW" id="laPlotW">Ширина </label><input type="number" id="iPlotW" disabled value="210" max="5000" min="100">
+					</div>
+					<div class="pull-left">
+						<label for="iPlotH" id="laPlotH">Высота </label><input type="number" id="iPlotH" disabled value="297" max="20000" min="100"> мм
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div><input type="text" id="pfSelectpage"></div>
+				<div class="selecthelp">
+					<p>- введите номера страниц через запятую: 1,2,3</p>
+					<p>- чтобы распечатать диапазон страниц ведите: 1-3, 5-9</p>
+					<p>- возможно совмещать оба способа: 1,2,3,5-8</p>
+				</div>
+				<div class="space">&nbsp;</div>
+				<input type="checkbox" checked id="pfSm"> <label for="pfSm">Включить сантиметровую разметку при печати</label>
+				<div class="space">&nbsp;</div>
+				<div class="actions pfBtns">
+					<a id="printNow" href="#">Распечатать</a>
+					<a id="cancelPrintNow" href="#">Отменить печать</a>
+					<div class="clearfix">&nbsp;</div>
+					<a id="bShowInputMetaForm" href="#">Дополнительно</a>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		
+		<div id="pdfs" class="hide">
+			<div class="spaceHeader">&nbsp;</div>
+			<div class="left pdfList">
+				<div class="pdfHeadingsGroup">
+					<div class="left pdfHeaderFileName">
+						<div class="header">Имя файла</div>
+					</div>
+					<div class="left pdfHeaderDate">
+						<div class="header">Дата печати</div>
+					</div>
+					<div class="left pdfHeaderPlane">
+						<div class="header">Чертеж</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<ul class="pdfItems" id="pdfItems">
+				</ul>
+				<div class="pdfLegend">
+					Как печатать PDF чертеж <a href="http://my.redcafestore.com/help.php?id=23" target="_blank">смотрите раздел Помощь</a>
+				</div>
+			</div>
+			<div class="left actions">
+				<div class="header">Действия</div>
+				
+				<div class="fill_2">
+					<div>Тут хранятся все чертежи которые вы печатали.</div>
+					<div>Срок хранения - 30 суток.</div>
+					<div>Формат хранения - PDF</div>
+				</div>
+				<a href="#" id="pdfGotoCab"><img src="C:/dev/v3-r9/default/img/back.png"> Вернуться в кабинет</a>
+				<div class="fill_1">&nbsp;</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		
+		<div id="inputMetadataSrceen" class="hide">
+			<div class="infoWindow">
+				<div class="body">
+					<header>Правка текста на первой странице</header>
+					<div>
+						<input class="editLabel" type="text" value="" id="iDateLabel"/> <input class="editVal" type="text" value="" id="iDateVal"/> 
+					</div>
+					<div>
+						<input class="editLabel" type="text" value="" id="iFilenameLabel"/> <input class="editVal" type="text" value="" id="iFilenameVal"/> 
+					</div>
+					
+					
+					<header>Дополнительные параметры при печати на плоттере</header>
+					<div>
+						<input type="checkbox" id="iPlotFrameOff"> <label for="iPlotFrameOff">Не печатать рамку и уголки</label>
+					</div>
+					
+				</div>
+			</div>
+			<a href="#" id="bCloseMetadataScreen">Настройки печати</a>
+		</div>
+		
+		<div id="waitScreen" class="hide">
+			<div class="infoWindow">
+				<div class="body">
+					<header>Печать файла</header>
+					<div id="fileLegend">Файл <span id="pfWfName">Tot hfp  ds dsf </span></div>
+					<div class="waitQueueLegend">Ожидает своей очереди для печати...</div>
+					<img src="C:/dev/v3-r9/default/img/big-success.png" class="hide" id="bigSuccess">
+					<img src="C:/dev/v3-r9/default/img/gif-load.gif" id="bigLoader">
+					
+					<div class="fn mb0">время ожидания</div>
+					<div><span id="pfWtime">00 00</span></div>
+					<a href="#" id="pfWCancelOrPrint">ОТМЕНА</a>
+					<div class="spacer_3">&nbsp;</div>
+				</div>
+			</div>
+			<div class="sWindow">
+				<div>Печать без ожидания от 15 руб.</div>
+				<div class="payWrapper"><a href="/pay.php?tariff=3" id="pfWGetPro" target="_blank">КУПИТЬ</a></div>
+				<div class="spacer_2">&nbsp;</div>
+			</div>
+			<a href="#" id="pfWHideWindow">Свернуть окно ожидания</a>
+		</div>
+    </div>
+    
+    
+    
+    <!-- Путь F:/dev-11-2014/qt/v3v9xp/release/ не должен вас смущать, программа заменяет его при запуске на реальный путь к файлам -->
+    <script src="C:/dev/v3-r9/default/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="C:/dev/v3-r9/default/js/jquery.cookie.js" type="text/javascript"></script>
+		<!-- простой 2d движок html5 canvas созданный по образу falsh action script, реализует некоторые его функции связанные с анимацией. Объекты Sprite, TextField, TextFormat -->
+	<script src="C:/dev/v3-r9/default/js/se2d.min.js" type="text/javascript"></script>
+		<!-- Данный проект содержит много транслированых с языка php js-файлов. В php.js определены несколько стандартных фунеций php -->
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/fpdf17/php.js"></script>
+	<!-- /библиотеки -->
+	
+	<!-- Контроллер главной формы -->
+	<script src="C:/dev/v3-r9/default/js/personalform.js" type="text/javascript"></script>
+	<!-- Контроллер формы печати -->
+	<script src="C:/dev/v3-r9/default/js/personalformsettings.js" type="text/javascript"></script>
+	<!-- Контроллер экрана ожидания, в оффлайн версии не используется, но не хочется от него ихзбавляться для более полной совместимости с web версией-->
+	<script src="C:/dev/v3-r9/default/js/personalformwaitscreen.js" type="text/javascript"></script>
+	
+	<!-- Файл используется при отладке в браузере. Содержит данные, кторые реальная программа получает из выбранных пользователеми файлов  -->
+	<script src="C:/dev/v3-r9/default/js/patchs.js"></script>
+	<!-- Файл используется при отладке в браузере. В оффлайн версии доступны объекты PHP и Qt которых нет в браузере. Для совместимости в файле qt.php определены некоторые функции -->
+	<!-- Вы можете использовать его для знакомства с интерфейсами объектов PHP и Qt но лучше использовать https://github.com/lamzin-andrey/gjs/blob/mrcs/data/default/doc/desktopAPI.html -->
+	<script src="C:/dev/v3-r9/default/js/qt.js"></script>
+	<!-- Определены несколько глобальных функций, использующихся проектом.  Использовался, когда для генерации pdf был нужен оффлай интерпретатор PHP  -->
+	<script src="C:/dev/v3-r9/default/js/main.js"></script>
+
+	
+	<!-- Это php код транслированный в js тут http://php2js.ru, местами потом доработан. Обработка http запросов на сайте -->
+		<!-- CResponder Принимает http запросы от html5 версии на сайте -->
+	<script src="C:/dev/v3-r9/default/php/v2/CResponder.js"></script>
+		<!-- DbProvider В бэкенде работал с базой данных. В оффлайн версии оставлен для совместимости -->
+	<script src="C:/dev/v3-r9/default/php/v2/DbProvider.js"></script>
+		<!-- Имитирует начальную обработку http запросов, передает управление CResponder -->
+	<script src="C:/dev/v3-r9/default/php/v2/index.js"></script>
+	
+	
+	<!-- Это php код транслированный в js тут http://php2js.ru, местами потом доработан.
+	  При работе на сайте файлы pdf генерируются на сервере. Но когда-то они печатались прямо из swf файла.
+	  Для портирования ActionScript кода на php бэкенд был создан программный интерфейс, совместимый с Flash ActionScrip 3.0
+	  
+	  После того как этот php бэкенд понадобилось перенести обратоно на фронтенд (в оффлайн версию прогграммы, с которой вы сейчас сбираетесь работать)
+	  Получился конфликт имен классов c se2d который используется во фронтенде для реализации превью выкройки
+	  
+	  Поэтому всем классам, реализующим интерфейс ActionScript 3.0 и транслированным с php в js добавлен префикс P
+	  
+	  Эти классы используются при генерации pdf, а аналогичные им классы из se2d.js - для реализации превью просмотра 
+	  выкройки на форме.
+	 -->
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/flashemu/PGraphics.js"></script>
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/flashemu/PSprite.js"></script>
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/flashemu/PTextFormat.js"></script>
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/flashemu/PTextField.js"></script>
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/flashemu/Arrow.js"></script>
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/flashemu/PrintJob.js"></script>
+	<!-- конец определения "системных" классов Actioт Script 3.0 переписанных сначала на php а потом транслированных из php в js -->
+	
+	
+	<!-- Это php код транслированный в js тут http://php2js.ru, местами потом доработан.
+	     Это класс для создания pdf файлов и файлы шрифтов.
+	     В последних версиях Acrobat Reader сгенерироыванный pdf не открывается, но исходный php код также создает такую же проблему.
+	     Кажется это общая проблема для всех jpen source генераторов pdf файлов
+	-->
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/fpdf17/arial-cyr.js"></script>
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/fpdf17/arial-cyrb.js"></script>
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/fpdf17/hevleticab.js"></script>
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/fpdf17/hevletica.js"></script>
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/fpdf17/times.js"></script>
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/fpdf17/fpdf.js"></script>
+	<!--  конец транслированных с php классов для генерации pdf файлов -->
+	
+	
+	<!-- Это php код транслированный в js тут http://php2js.ru, местами потом доработан.
+	  При работе на сайте файлы pdf генерируются на сервере. Но когда-то они печатались прямо из swf файла.
+	  Файлы ниже когда-то были написаны на  Flash ActionScrip 3.0.
+	  Потом они были переписаны на php, а потом на js )
+	 -->
+		<!-- Парсинг DSS файлов -->
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/dss/DssParser.js"></script>
+		<!-- Библиотечные классы, используются при подготовке к "печати" (генерации pdf) -->
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/dss/Map.js"></script>
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/dss/MapPoint.js"></script>
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/dss/SpriteMap.js"></script>
+		<!-- Библиотечный класс, используется для упорядочивания страниц) -->
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/dss/PageOrderHelper.js"></script>
+	
+		<!-- Основная логика по разбиению выкройки на страницы в зависимости от формата страниц в следующих двух файлах -->
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/dss/PrintHelper.js"></script>
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/dss/PrintManager.js"></script>
+	
+			<!-- CResponder в случае аесли запрошен pdf передает управление этому классу -->
+	<script src="C:/dev/v3-r9/default/php/PdfCreator/CPdfCreator.js"></script>
+	
+	
+	<!-- В оффлайн версии вместо того чтобы отправлять http запросы на сервер вызывается Cmdline2HttpRequestAdapter -->
+	<!-- Вас может удивить синтаксис, это сваязано с тем что поначалу в олффлайн версии использовался реальный интерпретатор php -->
+	<!-- ,а позже понадобилось сново вернуться к формату передачи данных, похожему на http POST -->
+	<script src="C:/dev/v3-r9/default/php/offline.js"></script>
+	
+	<!-- Эти классы, для экспорта в dxf переписаны с ActionScript на JavaScript ручками, в web версии экспорта в html у нас нет. -->
+	<!-- Зато логика реализации кнопки Экспорт в pdf самая простая) -->
+	<script src="C:/dev/v3-r9/default/actionscript/DxfCreator.js"></script>
+	<script src="C:/dev/v3-r9/default/actionscript/DxfTemplate.js"></script>
+
+</body>
+
+</html>
